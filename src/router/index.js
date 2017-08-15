@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Home from '@/components/Home'
 import About from '@/components/About'
 import Archive from '@/components/Archive'
+import Review from '@/components/Review'
 
 Vue.use(Router)
 
@@ -22,6 +23,11 @@ export default new Router({
       path: '/archive',
       name: 'Archive',
       component: Archive
+    },
+    {
+      path: '/review',
+      name: 'Review',
+      component: Review
     }
   ]
 })
