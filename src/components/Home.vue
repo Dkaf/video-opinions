@@ -28,10 +28,6 @@ export default {
 	  background-color: lightgrey;
 	  margin: 0 auto;
   }
-  .subtitle {
-	  font-size: 1.5em;
-	  font-style: bold;
-  }
   .date {
 	  display: block;
 	  font-size: 1.5em;
