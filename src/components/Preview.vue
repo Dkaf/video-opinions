@@ -1,6 +1,6 @@
 <template>
 	<div class="component preview">
-		<div class="container"  v-for="review in reviews">
+		<div class="container preview-container"  v-for="review in reviews">
 			<router-link to="/review" class="link">
 				<span class="subtitle">{{ review.title }}</span>
 			</router-link>
@@ -45,5 +45,8 @@
 		font-size: 1.1em;
 		text-align: center;
 		margin-left: 15px;
+	}
+	.preview-container {
+		margin-bottom: 15px;
 	}
 </style>
