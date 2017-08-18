@@ -1,7 +1,11 @@
 <template>
 	<div class="component preview">
-		<h2 class="subtitle">{{ title }}</h2>
-		<span class="date">{{ date }}</span>
+		<div class="container"  v-for="review in reviews">
+			<router-link to="/review" class="link">
+				<span class="subtitle">{{ review.title }}</span>
+			</router-link>
+			<span class="preview-date">{{ review.date }}</span>
+		</div>
 	</div>
 </template>
 
@@ -10,9 +14,36 @@
 		name: 'preview',
 		data () {
 			return {
-				title: 'Example Title',
-				date: '9/9/99'
+				reviews: [
+					{
+						title: 'Birdemic 2',
+						date: '9/9/99'
+					},
+					{
+						title: 'Birdemic',
+						date: '9/8/99'
+					},
+					{
+						title: 'Troll 2',
+						date: '9/7/99'
+					}
+				]
 			}
 		}
 	}
 </script>
+
+<style>
+	.link {
+		color: black;
+		text-decoration: none;
+	}
+	.link::active {
+		color: black;
+	}
+	.preview-date {
+		font-size: 1.1em;
+		text-align: center;
+		margin-left: 15px;
+	}
+</style>
