@@ -14,9 +14,10 @@
 
 <style>
 	.main-header {
-		background: white;
 		width: 100%;
-		height: 150px;
-		position: absolute;
+		height: 75px;
+		top: 0;
+		left: 0;
+		overflow-x: hidden;
 	}
 </style>
