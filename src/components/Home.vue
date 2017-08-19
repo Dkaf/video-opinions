@@ -19,7 +19,6 @@ export default {
 <style>
   .title {
 	  font-size: 3em;
-	  padding-top: 30px;
   }
   .section {
 	  height: 350px;
