@@ -19,6 +19,7 @@ export default {
 		text-align: right;
 		height: 100px;
 		background: white;
+		width: 100%;
 	}
 	.nav-link {
 		color: black;
