@@ -13,9 +13,12 @@ export default {
 
 <style>
 	.nav {
-		top: 10px;
-		right: 20px;
+		top: 0px;
+		left: 0px;
 		position: absolute;
+		text-align: right;
+		height: 100px;
+		background: white;
 	}
 	.nav-link {
 		color: black;
