@@ -25,7 +25,7 @@
 					reviews: store.state.reviews,
 					selectedVideo: store.state.selectedVideo,
 					displayed: false,
-\				}
+				}
 			}
 		}
 	}
