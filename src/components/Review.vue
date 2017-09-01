@@ -1,30 +1,19 @@
 <template>
 	<div class="component article">
-		<h1 class="title">{{ title }}</h1>
-		<span class="date">{{ date }}</span>
+		<h1 class="title">{{ this.selected.title }}</h1>
+		<span class="date">{{ this.selected.date }}</span>
+		<p class="review-content">{{ this.selected.review }}</p>
 		<div class="container">
-			<youtube></youtube>
-			<movie></movie>		
 		</div>
 	</div>
 </template>
 
 <script>
-import Youtube from './Youtube'
-import Movie from './Movie'
+import store from '../store'
 
 export default {
-  name: 'article',
-  data () {
-	  return {
-		 title: "placeholder",
-		 date: "8/14/17"
-	  }
-  },
-  components: {
-	  Youtube,
-	  Movie
-  }
+  name: 'review',
+	props: ['selected']
 }
 </script>
 <style>
