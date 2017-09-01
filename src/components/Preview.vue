@@ -1,48 +1,31 @@
 <template>
 	<div class="component preview">
-		<div class="container preview-container"  v-for="review in reviews">
-			<router-link to="/review" class="link">
-				<span class="subtitle">{{ review.title }}</span>
-			</router-link>
+		<div class="container preview-container" v-for="review in data.reviews" v-bind:review="review" v-bind:key="review.id">
+			<span class="subtitle" v-on:click="data.selectedVideo = review, data.displayed = !displayed">{{ review.title }}</span>
 			<span class="preview-date">{{ review.date }}</span>
 		</div>
+		<div class="container router-container" :hidden="!data.displayed">
+		<router-link :to="{ name: 'Review', params: {selected: data.selectedVideo} }" class="link">
+			<button class="review-button">Full Article</button>
+		</router-link>
+		</div>
+		<div>{{ data.selectedVideo }}</div>
 	</div>
 </template>
 
 <script>
+	import store from '../store.js';
+
 	export default {
 		name: 'preview',
 		data () {
 			return {
-				reviews: [
-					{
-						title: 'Birdemic 2',
-						date: '9/9/99',
-						youtube: false,
-						thumbnail: 'url',
-						review: 'adknfkdn ansdfklasdn nkdnfokasdjf'
-					},
-					{
-						title: 'Birdemic',
-						date: '9/8/99',
-						youtube: false
-					},
-					{
-						title: 'Troll 2',
-						date: '9/7/99',
-						youtube: false
-					},
-					{
-						title: 'Cow Chop',
-						date: '9/6/99',
-						youtube: true
-					},
-					{
-						title: 'MFpallytime',
-						date: '9/5/99',
-						youtube: true
-					}
-				]
+				data: {
+					store: store,
+					reviews: store.state.reviews,
+					selectedVideo: store.state.selectedVideo,
+					displayed: false,
+\				}
 			}
 		}
 	}
@@ -63,5 +46,6 @@
 	}
 	.preview-container {
 		margin-bottom: 15px;
+		cursor: pointer;
 	}
 </style>
