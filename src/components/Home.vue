@@ -1,24 +1,28 @@
 <template>
 	<div class="home">
-		<h1 class="title">Good Opinions About Terrible Videos</h1>
-		<div class="container newest">
-			<h2 class="subtitle">Newest</h2>
-			<span class="date">8/14/17</span>
-			<iframe width="854" height="480" src="https://www.youtube.com/embed/N2VwIfi6LoY" frameborder="0" allowfullscreen></iframe>
+		<h1 class="title">Newest</h1>
+		<div class="card-row">
+			<movie-card></movie-card>
 		</div>
 	</div>
 </template>
 
 
 <script>
+import MovieCard from './MovieCard'
 export default {
-	name: 'home'
+	name: 'home',
+	components: { MovieCard }
 }
 </script>
 
 <style>
   .title {
 	  font-size: 3em;
+  }
+  .card-row {
+	  width: 880px;
+	  margin: 0 auto;
   }
   .section {
 	  height: 350px;
@@ -27,11 +31,6 @@ export default {
 	  /* border: solid 1px black; */
 	  background-color: lightgrey;
 	  margin: 0 auto;
-  }
-  .date {
-	  display: block;
-	  font-size: 1.5em;
-	  font-weight: bold;
   }
 
 </style>
