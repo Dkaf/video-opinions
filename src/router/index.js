@@ -25,9 +25,10 @@ export default new Router({
       component: Archive
     },
     {
-      path: '/review',
+      path: '/review/:selected',
       name: 'Review',
-      component: Review
+      component: Review,
+      props: true
     }
   ]
 })
