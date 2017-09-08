@@ -3,8 +3,8 @@
 		<div class="container card-container" v-for="review in reviews" v-bind:key="review.id">
 			<router-link :to="{name: 'Review', params: {selected: review}}">
 				<h2 class="subtitle">{{ review.title }}</h2>
-				<span class="date">{{ review.date }}</span>
-				<img class="thumbnail" src="../assets/home-background.jpg">
+				<!-- <span class="date">{{ review.date }}</span>
+				<img class="thumbnail" src="../assets/home-background.jpg"> -->
 			</router-link>
 		</div>
 	</div>
@@ -23,23 +23,35 @@
 </script>
 
 <style>
-	.card-container {
-	box-shadow: 0px 2px 10px 3px grey;
-	background-color: white;
-	border-radius: 10px;
-	width: 400px;
-	height: 400px;
-	margin: 20px;
-	display: inline-block;
+	.card {
+		left: 50%;
+		transform: translate(-50%, 0);
+		position: absolute;
 	}
 
-	.card-container:hover {
-		background-color: #ededed;
+	.card-container {
+		position: relative;
+		text-align: left;
 	}
 
 	.card-container a {
 		color: black;
 		text-decoration: none;
+	}
+
+	.subtitle {
+		margin: 0;
+		font-size: 3em;
+		font-weight: bolder;
+	}
+
+	.subtitle::after {
+		content: '!';
+	}
+
+	.subtitle:hover {
+		text-decoration: underline;
+		text-decoration-color: #00d8ff;
 	}
 
 	.date {
@@ -51,8 +63,8 @@
 
 	.thumbnail {
 	  width: auto;
-	  max-width: 350px;
+	  max-width: 550px;
 	  height: auto;
-	  max-height: 250px;
-  }
+	  max-height: 200px;
+    }
 </style>
