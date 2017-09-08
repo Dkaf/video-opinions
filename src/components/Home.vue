@@ -1,6 +1,5 @@
 <template>
 	<div class="home">
-		<h1 class="title">Newest</h1>
 		<div class="card-row">
 			<movie-card></movie-card>
 		</div>
@@ -23,6 +22,7 @@ export default {
   .card-row {
 	  width: 880px;
 	  margin: 0 auto;
+	  text-align: center;
   }
   .section {
 	  height: 350px;
