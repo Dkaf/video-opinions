@@ -4,6 +4,8 @@ import Home from '@/components/Home'
 import About from '@/components/About'
 import Archive from '@/components/Archive'
 import Review from '@/components/Review'
+import Admin from '@/components/Admin'
+import AdminDashboard from '@/components/AdminDashboard'
 
 Vue.use(Router)
 
@@ -29,6 +31,16 @@ export default new Router({
       name: 'Review',
       component: Review,
       props: true
+    },
+    {
+      path: '/admin',
+      name: 'Admin',
+      component: Admin
+    },
+    {
+      path: '/admin/dashboard',
+      name: 'AdminDashboard',
+      component: AdminDashboard
     }
   ]
 })
