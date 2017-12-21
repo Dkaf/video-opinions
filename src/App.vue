@@ -1,19 +1,24 @@
 <template>
   <!-- Don't drop "q-app" class -->
   <div id="q-app">
-    <header></header>
+    <header>
+      <main-header />
+    </header>
     <main>
-      <img src="~assets/quasar-logo-full.svg" alt="Quasar PWA">
       <router-view></router-view>
     </main>
   </div>
 </template>
 
 <script>
+import MainHeader from '@/MainHeader'
+
 /*
  * Root component
  */
-export default {}
+export default {
+  components: { MainHeader }
+}
 </script>
 
 <style lang="stylus">
