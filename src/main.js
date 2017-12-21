@@ -14,6 +14,7 @@ import Vue from 'vue'
 import Quasar from 'quasar'
 import Vuex from 'Vuex'
 import router from './router'
+import store from './store'
 
 Vue.config.productionTip = false
 Vue.use(Quasar)// Install Quasar Framework
@@ -31,5 +32,6 @@ if (__THEME === 'mat') {
 new Vue({
   el: '#q-app',
   router,
+  store,
   render: h => h(require('./App').default)
 })
