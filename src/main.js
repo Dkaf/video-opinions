@@ -12,7 +12,7 @@ require(`quasar/dist/quasar.${__THEME}.css`)
 
 import Vue from 'vue'
 import Quasar from 'quasar'
-import Vuex from 'Vuex'
+import Vuex from 'vuex'
 import router from './router'
 import store from './store'
 
