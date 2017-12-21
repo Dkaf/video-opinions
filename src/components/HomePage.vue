@@ -1,14 +1,23 @@
 <template>
   <!-- if you want automatic padding use "layout-padding" class -->
   <div class="layout-padding">
-    <!-- your content -->
+    <movie-card :reviews="reviews"/>
   </div>
 </template>
 
 <script>
+import MovieCard from './MovieCard'
 export default {
+  name: 'HomePage',
+  components: { MovieCard },
   data () {
-    return {}
+    return {
+      reviews: [
+        {
+          title: 'Test'
+        }
+      ]
+    }
   }
 }
 </script>
