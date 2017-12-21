@@ -12,22 +12,29 @@
       </q-toolbar-title>
     </q-toolbar>
 
-    <!-- Navigation Tabs
     <q-tabs slot="navigation">
-      <q-route-tab slot="title" icon="view_quilt" to="/layout/about" replace hide="icon" label="About" />
-      <q-route-tab slot="title" icon="view_day" to="/layout/toolbar" replace hide="icon" label="Toolbar" />
-      <q-route-tab slot="title" icon="view_day" to="/layout/tabs" replace label="Tabs" />
-      <q-route-tab slot="title" icon="input" to="/layout/drawer" replace label="Drawer" />
+      <q-route-tab slot="title" to="/movies" replace hide="icon" label="Movies" />
+      <q-route-tab slot="title" to="/games" replace hide="icon" label="Games" />
+      <q-route-tab slot="title" to="/youtube" replace label="YouTube" />
+      <q-route-tab slot="title" to="/about" replace label="Me" />
     </q-tabs>
-    -->
+   
     <router-view />
 
   </q-layout>
 </template>
 
 <script>
+import { QLayout, QToolbar, QToolbarTitle, QTabs, QRouteTab } from 'quasar'
 export default {
   name: 'MainHeader',
+  components: {
+    QLayout,
+    QToolbar,
+    QToolbarTitle,
+    QTabs,
+    QRouteTab
+  },
   data () {
     return {}
   }
