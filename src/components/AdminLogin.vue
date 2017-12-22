@@ -1,7 +1,7 @@
 <template>
   <div>
-    <q-input v-model="password" type="password" float-label="Password"/>
-    <q-btn v-model="submit" loader @click="submitPass()">Submit</q-btn>
+    <q-input v-model="password" type="password" float-label="Password" @keyup.enter="login()"/>
+    <q-btn v-model="load" loader @click="login()">Submit</q-btn>
   </div>
 </template>
 
@@ -12,17 +12,22 @@ export default {
   components: { QInput, QBtn },
   data () {
     return {
-      password: '',
-      submit: false
+      load: false,
+      password: ''
     }
   },
   methods: {
-    submitPass () {
-      this.submit = true
-      console.log('password submitted')
-      setTimeout(() => {
-        this.submit = false
-      }, 3000)
+    login () {
+      this.load = true
+      this.$store.dispatch('login', this.password).then(() => {
+        this.load = false
+        this.password = ''
+        this.$router.push({name: 'AdminDashboard'})
+      }).catch((err) => {
+        this.load = false
+        this.password = ''
+        alert(err)
+      })
     }
   }
 }
