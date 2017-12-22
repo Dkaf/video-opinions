@@ -3,7 +3,10 @@ import VueRouter from 'vue-router'
 
 import HomePage from '@/HomePage'
 import AdminPage from '@/AdminPage'
+import AdminDashboard from '@/AdminDashboard'
 import VideoReview from '@/VideoReview'
+import MovieReviews from '@/MovieReviews'
+import YoutubeReviews from '@/YoutubeReviews'
 
 Vue.use(VueRouter)
 
@@ -24,15 +27,30 @@ export default new VueRouter({
       component: HomePage
     },
     {
-      path: '/admin',
-      name: 'Admin',
-      component: AdminPage
+      path: '/movies',
+      name: 'Movies',
+      component: MovieReviews
+    },
+    {
+      path: '/youtube',
+      name: 'Youtube',
+      component: YoutubeReviews
     },
     {
       path: '/review/:name',
       name: 'Review',
       component: VideoReview,
       props: true
+    },
+    {
+      path: '/admin',
+      name: 'Admin',
+      component: AdminPage
+    },
+    {
+      path: '/admin/dashboard',
+      name: 'AdminDashboard',
+      component: AdminDashboard
     }
   ]
 })
