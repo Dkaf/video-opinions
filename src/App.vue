@@ -1,23 +1,26 @@
 <template>
   <!-- Don't drop "q-app" class -->
   <div id="q-app">
-    <header>
-      <main-header />
-    </header>
-    <main>
-      <router-view></router-view>
-    </main>
+    <main-header />
   </div>
 </template>
 
 <script>
 import MainHeader from '@/MainHeader'
-
+import { mapActions } from 'vuex'
 /*
  * Root component
  */
 export default {
-  components: { MainHeader }
+  components: { MainHeader },
+  methods: {
+    ...mapActions([
+      'updateReviewList'
+    ])
+  },
+  created: function () {
+    this.updateReviewList()
+  }
 }
 </script>
 
