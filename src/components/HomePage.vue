@@ -10,13 +10,9 @@ import MovieCard from './MovieCard'
 export default {
   name: 'HomePage',
   components: { MovieCard },
-  data () {
-    return {
-      reviews: [
-        {
-          title: 'Test'
-        }
-      ]
+  computed: {
+    reviews: function () {
+      return this.$store.state.reviews
     }
   }
 }
