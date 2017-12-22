@@ -20,9 +20,9 @@ export default {
   updateReviewListErr (state, err) {
     state.err = err
   },
-  loginSuccess (state, token) {
-    state.loggedIn = true
-    state.token = token
+  loginSuccess (state, access) {
+    state.token = access.token
+    state.password = access.password
   },
   loginErr (state, err) {
     state.err = err
