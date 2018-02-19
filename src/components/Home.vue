@@ -12,7 +12,13 @@ export default {
 	components: { MovieCard },
 	computed: {
     reviews: function() {
-      return this.$store.state.reviews
+			if(this.$route.path === '/movies') {
+				return this.$store.getters.movieReviews
+			} else if (this.$route.path === '/youtube') {
+				return this.$store.getters.youtubeReviews
+			} else {
+				return this.$store.state.reviews
+			}
     }
   }
 }
