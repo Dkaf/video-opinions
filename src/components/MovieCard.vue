@@ -1,7 +1,7 @@
 <template lang="pug">
   .card
     .container.card-container(v-for='review in reviews', v-bind:key='review.id')
-      router-link(:to="{name: 'Review', params: {selected: review}}")
+      router-link(:to="{name: 'Review', params: {name: review.title}}")
         h2.subtitle {{ review.title }}
         //
           <span class="date">{{ review.date }}</span>
