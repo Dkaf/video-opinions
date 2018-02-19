@@ -4,5 +4,8 @@ export default {
   },
   movieReviews: state => {
     return state.reviews.filter(review => review.type === 'movie')
+  },
+  getReview: (state) => (name) => {
+    return state.reviews.find( review => review.title === name)
   }
 }
