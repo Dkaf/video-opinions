@@ -1,5 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+
+import store from '@/store'
 import Home from '@/components/Home'
 import About from '@/components/About'
 import Archive from '@/components/Archive'
@@ -17,6 +19,16 @@ export default new Router({
       component: Home
     },
     {
+      path: '/movies',
+      name: 'Movies',
+      component: Home
+    },
+    {
+      path: '/youtube',
+      name: 'YouTube',
+      component: Home
+    },
+    {
       path: '/about',
       name: 'About',
       component: About
@@ -27,13 +39,14 @@ export default new Router({
       component: Archive
     },
     {
-      path: '/review/:selected',
+      path: '/review/:name',
       name: 'Review',
       component: Review,
       props: true
     },
     {
       path: '/admin',
+      redirect: (store.state.token) ? '/admin/dashboard' : null,
       name: 'Admin',
       component: Admin
     },
