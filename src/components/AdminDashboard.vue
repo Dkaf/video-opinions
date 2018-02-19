@@ -10,22 +10,18 @@
         input(type="radio" id="movie" value="movie" v-model="type")
         label(for="youtube") YouTube
         input(type="radio" id="youtube" value="youtube" v-model="type")
-      label(for="new-review-text" name="Text")
+      label(for="new-review-text") Review
       textarea.new-review-text(v-model="reviewText")
       button(type="submit") submit
     h2.form-title Remove Review
-    form
-      fieldset
-        label(for="review-1") Review 1
-        input(type="checkbox" id="review-1" name="review" value="review 1")
-        label(for="review-2") Review 2
-        input(type="checkbox" id="review-2" name="review" value="review 2")
-        label(for="review-3") Review 3
-        input(type="checkbox" id="review-3" name="review" value="review 3")
-    button(type="submit") submit
+    form(v-on:submit.prevent="removeReview(reviewId)")
+      div(v-for="review in reviews" v-bind:key="review._id")
+        label(:for="review._id") {{review.title}}
+        input(type="radio" class="remove-radio" :id="review._id" name="review" :value="review._id" v-model="reviewId")
+      button(type="submit") submit
 </template>
 <script>
-import { mapActions } from 'vuex'
+import { mapActions, mapState } from 'vuex'
 
 export default {
   name: 'admin-dashboard',
@@ -33,14 +29,36 @@ export default {
     return {
       title: '',
       reviewText: '',
-      type: ''
+      type: '',
+      reviewId: []
     }
   },
   methods: {
     ...mapActions([
-      'addReview'
-    ]),
-  }
+      'addReview',
+      'removeReview'
+    ])
+  },
+  computed: mapState([
+    'reviews'
+  ])
 }
 </script>
+
+<style lang="stylus">
+  label
+    display: block
+  fieldset
+    border: none;
+  .new-review-text
+    width: 450px
+    height: 600px
+  #title
+    height: 35px
+    font-size: 1.5em
+  button
+    display: block
+    margin: 0 auto
+</style>
+
 
