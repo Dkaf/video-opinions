@@ -1,4 +1,5 @@
 import {HTTP} from './../axiosBase'
+import store from './index'
 
 export default {
 	selectVideo({ commit }, video) {
@@ -24,6 +25,18 @@ export default {
 			commit('addReviewErr', err)
 		})
 	},
+	removeReview({ commit }, id) {
+		HTTP.delete('/review', {
+			headers: {'X-Access-Token': store.state.token},
+			data:{id: id}
+		})
+		.then( res => {
+			commit('removeReviewSuccess', res.data.review)
+		})
+		.catch( err => {
+			commit('removeReviewErr', err)
+		})
+	},
 	updateReviewList({ commit }) {
 		HTTP('/review')
 		.then( res => {
@@ -34,13 +47,28 @@ export default {
 		})
 	},
 	login({ commit }, password) {
-    axios.post('/login', {
+    HTTP.post('/login', {
       password: password
     }).then( res => {
-      commit('loginSuccess', res.data.token)
+			commit('loginSuccess', res.data.token)
     })
     .catch( err => {
       commit('loginErr', err);
     })
+	},
+	changePass({ commit }, passwords) {
+		store.dispatch('login', passwords.oldPass)
+		.then( () => {
+			HTTP.post('/settings', {
+				headers: {'x-access-token': store.state.token},
+				data: {password: passwords.newPass}
+			})
+			.then( res => {
+				commit('changePassSuccess')
+			})
+			.catch( err => {
+				commit('changePassErr', err)
+			})
+		})
 	}
 }
