@@ -1,13 +1,12 @@
 <template lang="pug">
   #app
-    main-header
+    main-header(v-if="this.$route.path != '/admin' && this.$route.path != '/admin/dashboard'")
     router-view
 </template>
 
 <script>
 import MainHeader from './components/MainHeader'
 import { mapActions } from 'vuex'
-import axios from 'axios'
 export default {
   name: 'app',
   components: { MainHeader },
@@ -17,7 +16,7 @@ export default {
     ])
   },
   created: function () {
-	  this.$store.dispatch('updateReviewList');
+	  this.updateReviewList()
 	}
 }
 </script>
